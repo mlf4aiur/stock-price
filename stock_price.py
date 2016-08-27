@@ -15,6 +15,7 @@ __version__ = '0.9.0'
 app = Flask(__name__)
 
 PORT = int(os.environ.get("PORT", 5000))
+LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO")
 
 
 def get_request(url, values=None):
@@ -79,5 +80,5 @@ if __name__ == "__main__":
     handler = logging.StreamHandler()
     handler.setFormatter(formatter)
     app.logger.addHandler(handler)
-    app.logger.setLevel(logging.DEBUG)
+    app.logger.setLevel(logging.getLevelName(LOG_LEVEL))
     app.run(host="0.0.0.0", port=PORT)
