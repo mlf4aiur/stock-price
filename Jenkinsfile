@@ -26,7 +26,7 @@ node {
         image.push("${docker_tag}")
     }
 
-    stage 'Development'
+    stage 'Deploy to Dev Env'
 
     // Deploy this service to Development environment
     withCredentials([[$class: 'UsernamePasswordMultiBinding',
